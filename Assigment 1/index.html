@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Star Wars Experience</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 onclick="showHome()" class="clickable-title">The Star Wars Experience</h1>
+        <p>Discover the Star Wars Universe</p>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <div id="home-page" class="page">
+            <div class="categories">
+                <div class="category-card" onclick="showCategory('films')">
+                    <div class="category-icon">🎬</div>
+                    <h2>Films</h2>
+                    <p>Explore Star Wars movies</p>
+                </div>
+                <div class="category-card" onclick="showCategory('people')">
+                    <div class="category-icon">👨‍🚀</div>
+                    <h2>People</h2>
+                    <p>Meet the characters</p>
+                </div>
+                <div class="category-card" onclick="showCategory('planets')">
+                    <div class="category-icon">🪐</div>
+                    <h2>Planets</h2>
+                    <p>Visit different worlds</p>
+                </div>
+                <div class="category-card" onclick="showCategory('vehicles')">
+                    <div class="category-icon">🚀</div>
+                    <h2>Vehicles</h2>
+                    <p>See iconic vehicles</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Films Page -->
+        <div id="films-page" class="page hidden">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>Star Wars Films</h2>
+            <div id="films-container" class="items-container"></div>
+        </div>
+
+        <!-- People Page -->
+        <div id="people-page" class="page hidden">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>Star Wars Characters</h2>
+            <div id="people-container" class="items-container"></div>
+        </div>
+
+        <!-- Planets Page -->
+        <div id="planets-page" class="page hidden">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>Star Wars Planets</h2>
+            <div id="planets-container" class="items-container"></div>
+        </div>
+
+        <!-- Vehicles Page -->
+        <div id="vehicles-page" class="page hidden">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>Star Wars Vehicles</h2>
+            <div id="vehicles-container" class="items-container"></div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading hidden">
+            <p>Loading...</p>
+        </div>
+
+        <!-- Error -->
+        <div id="error" class="error hidden">
+            <p>Something went wrong. Please try again.</p>
+            <button onclick="showHome()">Go Home</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Data from <a href="https://swapi.dev" target="_blank">SWAPI</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

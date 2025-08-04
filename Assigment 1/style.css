@@ -1,0 +1,383 @@
+/* My CSS for star wars assignment */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 20, 0.8));
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+/* title styling */
+header h1, .clickable-title {
+    color: #ffffff;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 
+        2px 2px 0px #000000,
+        4px 4px 0px #1a1a1a,
+        6px 6px 0px #0d0d0d,
+        8px 8px 20px rgba(0, 0, 0, 0.9),
+        0 0 15px rgba(139, 0, 0, 0.6),
+        0 0 25px rgba(220, 20, 60, 0.3);
+    position: relative;
+    z-index: 1;
+    letter-spacing: 3px;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clickable-title:hover {
+    transform: scale(1.02);
+    text-shadow: 
+        2px 2px 0px #000000,
+        4px 4px 0px #0a0a0a,
+        6px 6px 0px #050505,
+        8px 8px 25px rgba(0, 0, 0, 1),
+        0 0 20px rgba(220, 20, 60, 0.8),
+        0 0 35px rgba(139, 0, 0, 0.5);
+}
+
+header p {
+    color: #cccccc;
+    font-size: 1.3rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Main Content */
+main {
+    min-height: 80vh;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Page Management */
+.page { display: block; }
+.hidden { display: none; }
+
+/* Categories Grid */
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 0 1rem;
+    justify-items: center;
+}
+
+.category-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    border-radius: 50%;
+    padding: 2rem;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: transform 0.6s ease;
+    opacity: 0;
+}
+
+.category-card:hover::before {
+    transform: rotate(45deg) translateX(100%);
+    opacity: 1;
+}
+
+.category-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: rgba(255, 0, 0, 0.6);
+    background: rgba(255, 0, 0, 0.05);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.category-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+    line-height: 1;
+}
+
+.category-card h2 {
+    color: rgba(255, 0, 0, 0.9);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+.category-card p {
+    color: #cccccc;
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+/* Items Display */
+.items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.item-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.item-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.item-card:hover::before { opacity: 1; }
+
+.item-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Item Images */
+.item-image {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.item-image img[src="assets/r2d2.png"],
+.item-image img[src="assets/atat.png"],
+.item-image img[src="assets/atst.png"] {
+    object-position: center top;
+}
+
+.item-card:hover .item-image img { transform: scale(1.02); }
+
+/* Item Content */
+.item-content { padding: 1.5rem; flex: 1; }
+
+.item-card h3 {
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.8rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.item-property {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    gap: 1rem;
+}
+
+.item-property:last-child { border-bottom: none; }
+
+.item-property:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.property-label {
+    font-weight: bold;
+    color: #cccccc;
+    position: relative;
+    flex-shrink: 0;
+    min-width: 100px;
+}
+
+.property-label::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+    transition: width 0.4s ease;
+}
+
+.item-property:hover .property-label::after { width: 100%; }
+
+.property-value { 
+    color: #ffffff; 
+    text-align: right;
+    word-wrap: break-word;
+    flex: 1;
+}
+
+/* Loading and Error States */
+#loading, #error {
+    text-align: center;
+    padding: 4rem 2rem;
+    font-size: 1.5rem;
+    color: #cccccc;
+}
+
+#error {
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 10px;
+    margin: 2rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.item-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+#loading::after {
+    content: '...';
+    animation: pulse 1.5s infinite;
+}
+
+/* Back Button */
+.back-btn {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(139, 0, 0, 0.3));
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.back-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.3), rgba(139, 0, 0, 0.4));
+    border-color: rgba(255, 0, 0, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+}
+
+footer p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: rgba(255, 0, 0, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: rgba(255, 0, 0, 1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header { padding: 2rem 1rem; }
+    header h1 { font-size: 2.2rem; }
+    header p { font-size: 1.1rem; }
+    main { padding: 1rem; }
+    .categories { gap: 1.5rem; margin-top: 2rem; }
+    .category-card { width: 150px; height: 150px; padding: 1.5rem; }
+    .category-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .category-card h2 { font-size: 1.1rem; }
+    .category-card p { font-size: 0.8rem; }
+    .items-container { grid-template-columns: 1fr; gap: 1.5rem; }
+    .item-card h3 { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+    header h1 { font-size: 1.8rem; letter-spacing: 1px; }
+    .categories { grid-template-columns: repeat(2, 1fr); }
+    .category-card { width: 130px; height: 130px; }
+}
