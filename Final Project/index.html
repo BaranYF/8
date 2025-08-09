@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinelist - Movie Watchlist</title>
+    <!-- TODO: need to set up webpack -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- TODO: add firebase later -->
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1>📽 Cinelist</h1>
+        </div>
+        
+        <div class="header-center">
+            <nav class="main-nav">
+                <button class="nav-button active" id="discover-btn" onclick="showDiscover()">Discover</button>
+                <button class="nav-button" id="watchlist-btn" onclick="showWatchlist()">❤️ Watchlist <span class="count" id="header-watchlist-count">0</span></button>
+            </nav>
+        </div>
+        
+        <div class="header-right">
+            <div class="auth-section">
+                <div class="auth-form compact-auth" id="compact-auth">
+                    <button id="open-auth-btn" onclick="openAuthModal()">login</button>
+                </div>
+                <div id="user-section" class="hidden">
+                    <span id="user-name">welcome!</span>
+                    <button onclick="logout()">logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- search section -->
+        <div class="search-container">
+            <div class="search-bar">
+                <div class="search-input-container">
+                    <input type="text" id="search-input" placeholder="Search movies...">
+                    <button class="search-icon" onclick="searchMovies()">🔍</button>
+                </div>
+            </div>
+            
+        <div class="filters">
+                <select id="genre-select" class="filter-select" aria-label="Filter by genre">
+                    <option value="">Any Genre</option>
+                </select>
+                <select id="year-select" class="filter-select" aria-label="Filter by year">
+                    <option value="">Any Year</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- discover films section -->
+        <div id="discover-section" class="content-section">
+            <div class="section-header">
+                <h2>Discover Films</h2>
+                <p class="film-count" id="discover-film-count">0 results</p>
+            </div>
+            
+            <div id="loading" class="hidden">Loading...</div>
+            <div id="search-results" class="movies-grid"></div>
+            <div id="no-results" class="hidden">
+                <p>No movies found. Try different search terms!</p>
+            </div>
+        </div>
+
+        <!-- my watchlist section -->
+        <div id="watchlist-section" class="content-section">
+            <div class="section-header">
+                <h2>My Watchlist</h2>
+                <p id="watchlist-count" class="film-count">3 films in your watchlist</p>
+            </div>
+            
+            <div id="watchlist-grid" class="movies-grid"></div>
+            <div id="empty-watchlist" class="hidden">
+                <p>Your watchlist is empty!</p>
+                <p>Start adding films you want to watch.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- movie detail popup -->
+    <div id="movie-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="movie-details"></div>
+        </div>
+    </div>
+
+    <!-- auth modal -->
+    <div id="auth-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeAuthModal()">&times;</span>
+            <div id="login-section" class="auth-form auth-form-vertical">
+                <input type="email" id="email" placeholder="email">
+                <input type="password" id="password" placeholder="password">
+                <div class="auth-actions">
+                    <button onclick="login()">login</button>
+                    <button class="link-btn" onclick="showSignup()">create account</button>
+                </div>
+            </div>
+            <div id="signup-section" class="auth-form auth-form-vertical hidden">
+                <input type="text" id="signup-name" placeholder="your name">
+                <input type="email" id="signup-email" placeholder="email">
+                <input type="password" id="signup-password" placeholder="password">
+                <div class="auth-actions">
+                    <button onclick="signup()">create account</button>
+                    <button class="link-btn" onclick="showLogin()">back to login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Movie data from TMDB API</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
-// My Star Wars website for school assignment
+// Star Wars website for assignment 1
 const API_URL = 'https://swapi.py4e.com/api';
 
-// functions to switch between pages
+// helper functions for page navigation
 function showHome() {
     hideAllPages();
     document.getElementById('home-page').classList.remove('hidden');
@@ -16,7 +16,8 @@ function showLoading() {
     document.getElementById('loading').classList.remove('hidden');
 }
 
-function showError(message = 'Something went wrong. Please try again.') {
+function showError(message) {
+    if (!message) message = 'Something went wrong. Please try again.';
     hideAllPages();
     const errorElement = document.getElementById('error');
     const errorText = errorElement.querySelector('p');

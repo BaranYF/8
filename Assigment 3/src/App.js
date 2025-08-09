@@ -1,20 +1,25 @@
+// Main App component for expense tracker assignment 3
 import React, { useState } from 'react';
 import ExpenseForm from './components/ExpenseForm';
 import ExpenseList from './components/ExpenseList';
 import './styles/App.css';
 
 function App() {
+  // state to store all expenses
   const [expenses, setExpenses] = useState([]);
   
+  // function to add new expense to the list
   const addExpense = (newExpense) => {
     const expenseWithId = { ...newExpense, id: Date.now() };
     setExpenses([...expenses, expenseWithId]);
   };
 
+  // function to remove expense from list
   const deleteExpense = (id) => {
     setExpenses(expenses.filter(expense => expense.id !== id));
   };
 
+  // calculate total amount of all expenses
   const totalAmount = expenses.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
 
   return (

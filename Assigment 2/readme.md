@@ -1,21 +1,21 @@
-# Campus Health Center Medicine Tracker
+# Campus Health Center Medicine Tracker - Assignment 2
 
-Assignment 2 for frontend class. Made a medicine tracker for our campus health center.
+Assignment 2 for frontend development class. Made a medicine inventory tracker for our campus health center.
 
 ## What it does
 
-- Add medicines with name, maker, expiry date and how many we have
-- Shows everything in a table 
-- Can remove medicines we dont need
-- Saves data so it remembers everything when you come back
-- Shows if stuff is expired or running out
+- Add medicines with name, manufacturer, expiry date and quantity
+- Shows everything in a table format
+- Can remove medicines that are no longer needed
+- Saves data in browser storage so it remembers everything
+- Shows warnings if items are expired or running low
 
-## Stuff i learned
+## What I learned
 
-- Classes and inheritance (took me a while to get this)
-- Making forms that check if you filled everything
-- Saving data in browser 
-- Making unique IDs for each medicine
-- Working with dates in javascript
+- Classes and inheritance in JavaScript (took me a while to understand this)
+- Making forms with proper validation
+- Saving data in localStorage 
+- Generating unique IDs for each medicine
+- Working with dates in JavaScript
 
-This one was way harder than the star wars site but i think i understand classes better now. The inheritance thing made no sense at first.
+This assignment was more challenging than the Star Wars site but I think I understand object-oriented programming better now. The inheritance concept was confusing at first but makes sense now.

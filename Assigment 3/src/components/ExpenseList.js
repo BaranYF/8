@@ -1,22 +1,27 @@
+// Component to display list of expenses in a table
 import React from 'react';
 
 function ExpenseList({ expenses, onDeleteExpense }) {
+  // helper function to format date for display
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric', month: 'short', day: 'numeric'
     });
   };
   
+  // helper function to format category text
   const formatCategory = (category) => {
     return category === '-' ? '-' : category.charAt(0).toUpperCase() + category.slice(1);
   };
   
+  // handle delete with confirmation dialog
   const handleDelete = (id, title) => {
     if (window.confirm(`Are you sure you want to delete "${title}"? This can't be undone!`)) {
       onDeleteExpense(id);
     }
   };
 
+  // show message if no expenses yet
   if (expenses.length === 0) {
     return (
       <div className="expense-list empty">
