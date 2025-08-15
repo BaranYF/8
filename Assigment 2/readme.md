@@ -18,4 +18,7 @@ Assignment 2 for frontend development class. Made a medicine inventory tracker f
 - Generating unique IDs for each medicine
 - Working with dates in JavaScript
 
+**Live Website:** https://sensational-taffy-c2b245.netlify.app/  
+**GitHub Repository:** https://github.com/BaranYF/8 (contains all assignments)
+
 This assignment was more challenging than the Star Wars site but I think I understand object-oriented programming better now. The inheritance concept was confusing at first but makes sense now.

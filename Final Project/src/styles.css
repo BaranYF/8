@@ -1,4 +1,6 @@
-/* Base styles for final project */
+/* Combined styles for webpack build */
+
+/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -116,20 +118,57 @@ header {
 
 .auth-form button:hover { background: #444; }
 
-#user-section {
-  color: #ccc;
-  font-size: 0.9rem;
-}
-
-#user-section button {
+.compact-auth button {
   background: #333;
   color: white;
   border: none;
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
-  margin-left: 10px;
   font-size: 0.85rem;
+  margin-left: 8px;
+}
+
+.compact-auth button:first-child {
+  margin-left: 0;
+}
+
+.compact-auth button:hover {
+  background: #444;
+}
+
+.profile-content {
+  text-align: center;
+}
+
+.profile-info {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.profile-info p {
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.profile-info strong {
+  color: #fff;
+}
+
+.clear-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.clear-btn:hover {
+  background: #c0392b;
 }
 
 .auth-form-vertical {
@@ -140,6 +179,16 @@ header {
 
 .auth-actions { display: flex; gap: 10px; }
 .link-btn { background: transparent; border: none; color: #9ab; cursor: pointer; }
+
+.auth-error {
+  background: #2d1b1b;
+  color: #ff6b6b;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  border: 1px solid #4a2626;
+}
 
 /* main layout */
 main {
@@ -237,7 +286,7 @@ main {
   text-align: center;
 }
 
-.film-count {
+.movie-count {
   color: #888;
   font-size: 0.9rem;
   margin: 0;
@@ -374,6 +423,20 @@ main {
   opacity: 0;
   transform: translateY(10px);
   animation: toast-in 200ms ease forwards;
+  max-width: 300px;
+  text-align: center;
+}
+
+.toast-success {
+  background: #1f4f3f;
+  border-color: #2d7a5f;
+  color: #a7f3d0;
+}
+
+.toast-error {
+  background: #4a1f1f;
+  border-color: #7a2d2d;
+  color: #fca5a5;
 }
 
 @keyframes toast-in {
@@ -445,3 +508,39 @@ footer {
 /* small helper */
 .hidden { display: none !important; }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+  }
+  .header-center { position: static; transform: none; order: 2; }
+  .header-right {
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+    order: 3;
+  }
+  .header-left { order: 1; text-align: center; }
+
+  .auth-form { flex-direction: column; gap: 6px; }
+  .auth-form input { width: 100px; }
+
+  main { padding: 0 20px; }
+  .search-container { margin: 20px 0; }
+  #search-input { width: 100%; max-width: none; }
+  .filters { gap: 8px; }
+  .section-header h2 { font-size: 1.5rem; }
+  .movies-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .movie-detail-content { flex-direction: column; text-align: center; gap: 20px; }
+  .detail-poster { width: 160px; height: 240px; margin: 0 auto; }
+  .modal-content { padding: 20px; margin: 20px; }
+}
+
+@media (max-width: 480px) {
+  .movies-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .header-right { flex-direction: column; gap: 10px; }
+  .watchlist-btn { padding: 4px 8px; font-size: 0.7rem; }
+}

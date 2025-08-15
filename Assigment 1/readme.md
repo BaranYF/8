@@ -10,4 +10,7 @@ My assignment for frontend development class. Shows characters, planets, vehicle
 - Works on mobile devices too
 - Dark theme with red accent colors
 
+**Live Website:** https://animated-moxie-218fe7.netlify.app/  
+**GitHub Repository:** https://github.com/BaranYF/8 (contains all assignments)
+
 This was a really nice project to work on since i love Star Wars and recently re-watched all of the prequel and sequel trilogy George Lucas movies. It was fun picking out my favorite characters and vehicles to display on the site.
