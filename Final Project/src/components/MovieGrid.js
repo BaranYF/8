@@ -13,7 +13,7 @@ function MovieGrid({ currentTab, movies, watchlist, loading, onMovieClick, onTog
     return (
       <div className="content-section">
         <div className="section-header">
-          <h2>{currentTab === 'discover' ? 'Discover Films' : 'My Watchlist'}</h2>
+          <h2>{currentTab === 'discover' ? 'Discover Movies' : 'My Watchlist'}</h2>
         </div>
         <div className="loading">Loading...</div>
       </div>
