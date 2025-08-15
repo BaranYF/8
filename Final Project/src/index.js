@@ -1,7 +1,7 @@
-// Entry point for React app - assignment 3
+// React entry point for final project
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles/App.css';
+import './styles.css';
 import App from './App';
 
 // render the main App component

@@ -1,12 +1,15 @@
+// Form component for adding new expenses
 import React, { useState } from 'react';
 
 function ExpenseForm({ onAddExpense }) {
+  // form input states
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState('');
   const [category, setCategory] = useState('');
   const [errors, setErrors] = useState({});
   
+  // available expense categories
   const categories = [
     { value: '', label: 'Select a category (optional)' },
     { value: 'housing', label: 'Housing' },
@@ -16,6 +19,7 @@ function ExpenseForm({ onAddExpense }) {
     { value: 'other', label: 'Other' }
   ];
 
+  // validate form fields before submission
   const validateForm = () => {
     const newErrors = {};
     if (!title.trim()) newErrors.title = 'Please enter a title for this expense';
@@ -25,6 +29,7 @@ function ExpenseForm({ onAddExpense }) {
     return newErrors;
   };
 
+  // handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const formErrors = validateForm();
@@ -34,6 +39,7 @@ function ExpenseForm({ onAddExpense }) {
       return;
     }
     
+    // if validation passes, add the expense
     setErrors({});
     onAddExpense({
       title: title.trim(),
@@ -42,7 +48,7 @@ function ExpenseForm({ onAddExpense }) {
       category: category || '-'
     });
     
-    // clear form
+    // clear form after successful submission
     setTitle('');
     setAmount('');
     setDate('');
